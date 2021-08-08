@@ -68,9 +68,16 @@ set relativenumber
 set foldmethod=indent
 set foldlevel=99
 
+" Extend python.vim's syntax for use with Snakemake
+runtime! syntax/python.vim
+
 " Enable folding with the spacebar
 nnoremap <space> za
 
 " REMEMBER THE FTPLUGIN!
 :highlight BadWhitespace ctermfg=16 ctermbg=253 guifg=#000000 guibg=#F8F8F0
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" snakemake stuff
+au BufNewFile,BufRead Snakefile set syntax=snakemake
+au BufNewFile,BufRead *.smk set syntax=snakemake
