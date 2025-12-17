@@ -1,25 +1,3 @@
-" For Vundle
-set nocompatible
-filetype off
-
-"Set the runtime path to include Vundle and initiaze
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" Let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'vim-syntastic/syntastic'
-"Plugin 'nvie/vim-flake8'
-"Plugin 'tmhedberg/SimpylFold'
-" All of your Plugins must be added before the following line
-call vundle#end()
-filetype plugin indent on
-
-
 "Always show current position
 set ruler
 
@@ -60,6 +38,17 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Half-page jumping with centering
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" Keep search results centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Keep cursor centered when joining lines
+nnoremap J mzJ`z
+
 " Hybrid line number:
 set number
 set relativenumber
@@ -68,9 +57,6 @@ set relativenumber
 set foldmethod=indent
 set foldlevel=99
 
-" Extend python.vim's syntax for use with Snakemake
-runtime! syntax/python.vim
-
 " Enable folding with the spacebar
 nnoremap <space> za
 
@@ -78,6 +64,3 @@ nnoremap <space> za
 :highlight BadWhitespace ctermfg=16 ctermbg=253 guifg=#000000 guibg=#F8F8F0
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-" snakemake stuff
-au BufNewFile,BufRead Snakefile set syntax=snakemake
-au BufNewFile,BufRead *.smk set syntax=snakemake
